@@ -2,27 +2,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.io.Serializable;
 
-/*
- * 	Program: Edytor grafów.
- * 
- *    Pliki: GraphEditor.java, 
- *    		 GraphPanel.java
- *    		 Grid.java,
- *    		 Node.java,
- *    		 SpecialNode.java,
- *    		 Edge.java,
- *    		 SpecialEdge.java,
- *    		 Graph.java,
- *    
- *     Plik: Edge.java
- *	 		 definicja klasy Edge
- *			 definicja typu wyliczeniowego EdgeType
- *
- *    Autor: Micha³ Tkacz 248869
- *	   Data: 22.11.2019r.
- *	Zajêcia: Pi¹tek TN 11:15
- */
-
 enum EdgeType {
 	BASIC_EDGE("KrawêdŸ zwyk³a"),
 	SPECIAL_EDGE("KrawêdŸ specjalna");

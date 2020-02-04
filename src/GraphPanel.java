@@ -20,26 +20,6 @@ import javax.swing.JPopupMenu;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
-/*
- * 	Program: Edytor grafów.
- * 
- *    Pliki: GraphEditor.java, 
- *    		 GraphPanel.java
- *    		 Grid.java,
- *    		 Node.java,
- *    		 SpecialNode.java,
- *    		 Edge.java,
- *    		 SpecialEdge.java,
- *    		 Graph.java,
- *    
- *     Plik: GraphPanel.java
- *	  		 definicja klasy GraphPanel
- *
- *    Autor: Micha³ Tkacz 248869
- *	   Data: 22.11.2019r.
- *	Zajêcia: Pi¹tek TN 11:15
- */
-
 public class GraphPanel extends JPanel implements MouseListener, MouseMotionListener, KeyListener,  ComponentListener {
 
 	

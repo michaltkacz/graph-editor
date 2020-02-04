@@ -4,26 +4,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 
-/*
- * 	Program: Edytor grafów.
- * 
- *    Pliki: GraphEditor.java, 
- *    		 GraphPanel.java
- *    		 Grid.java,
- *    		 Node.java,
- *    		 SpecialNode.java,
- *    		 Edge.java,
- *    		 SpecialEdge.java,
- *    		 Graph.java,
- *    
- *     Plik: SpecialEdge.java
- *	 		 definicja klasy SpecialEdge
- *
- *    Autor: Micha³ Tkacz 248869
- *	   Data: 22.11.2019r.
- *	Zajêcia: Pi¹tek TN 11:15
- */
-
 public class SpecialEdge extends Edge {
 
 	private static final long serialVersionUID = -2550804644989255961L;

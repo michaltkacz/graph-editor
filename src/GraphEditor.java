@@ -14,25 +14,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
-/*
- * 	Program: Edytor grafów.
- * 
- *    Pliki: GraphEditor.java, 
- *    		 GraphPanel.java
- *    		 Grid.java,
- *    		 Node.java,
- *    		 SpecialNode.java,
- *    		 Edge.java,
- *    		 SpecialEdge.java,
- *    		 Graph.java,
- *    
- *     Plik: GraphEditor.java
- *     		 definicja klasy GraphEditor
- *	  
- *    Autor: Micha³ Tkacz 248869
- *	   Data: 22.11.2019r.
- *	Zajêcia: Pi¹tek TN 11:15
- */
 
 public class GraphEditor extends JFrame implements ActionListener{
 
@@ -64,10 +45,9 @@ public class GraphEditor extends JFrame implements ActionListener{
 	
 	private static final String AUTHOR_INFO =   
 			  "Program do edycji grafów.\n"
-			+ "Program:  " + APP_TITLE +"\n" 
-			+ "Autor:    Micha³ Tkacz 248869\n"
-			+ "Zajêcia:  Pi¹tek TN 11:15\n" 
-			+ "Data:     22 listopad 2019 r.";
+			+ "Program:  " + APP_TITLE + "\n" 
+			+ "Autor:    Micha³ Tkacz \n"
+			+ "Data:     listopad 2019 r.";
 	
 	private static final String AUTOSAVE_FILE = "AUTOSAVE.bin";
 	

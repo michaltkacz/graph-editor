@@ -11,26 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/*
- * 	Program: Edytor grafów.
- * 
- *    Pliki: GraphEditor.java, 
- *    		 GraphPanel.java
- *    		 Grid.java,
- *    		 Node.java,
- *    		 SpecialNode.java,
- *    		 Edge.java,
- *    		 SpecialEdge.java,
- *    		 Graph.java,
- *    
- *     Plik: Graph.java
- *	         definicja klasy Graph
- *
- *    Autor: Micha³ Tkacz 248869
- *	   Data: 22.11.2019r.
- *	Zajêcia: Pi¹tek TN 11:15
- */
-
 class GraphException extends Exception{
 	private static final long serialVersionUID = 5280421833743690760L;
 	
