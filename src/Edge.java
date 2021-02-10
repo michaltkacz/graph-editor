@@ -3,8 +3,8 @@ import java.awt.Graphics;
 import java.io.Serializable;
 
 enum EdgeType {
-	BASIC_EDGE("KrawêdŸ zwyk³a"),
-	SPECIAL_EDGE("KrawêdŸ specjalna");
+	BASIC_EDGE("Basic edge"),
+	SPECIAL_EDGE("Special edge");
 	
 	String edgeType;
 	

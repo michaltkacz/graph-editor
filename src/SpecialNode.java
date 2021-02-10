@@ -75,7 +75,7 @@ public class SpecialNode extends Node {
 	@Override
 	public String toString() {
 		String colorHex = "#" + Integer.toHexString(color.getRGB()).substring(2).toUpperCase();
-		return super.toString() + "{ r: " + Integer.toString(r) + ", c: " + colorHex + ", t: " + text + "}";
+		return super.toString() + "{r: " + Integer.toString(r) + ", c: " + colorHex + ", t: " + text + "}";
 	}
 
 }

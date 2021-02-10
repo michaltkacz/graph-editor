@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 
 enum NodeType {
-	BASIC_NODE("Wêze³ zwyk³y"),
-	SPECIAL_NODE("Wêze³ specjalny");
+	BASIC_NODE("Basic node"),
+	SPECIAL_NODE("Special node");
 	
 	String nodeType;
 	

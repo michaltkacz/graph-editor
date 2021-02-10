@@ -129,7 +129,7 @@ public class Graph implements Serializable{
 		try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName))){
 			out.writeObject(graph);
 		}catch(IOException e) {
-			throw new GraphException("B³¹d serializacji!");
+			throw new GraphException("Serialization error!");
 		}
 	}
 	
@@ -137,7 +137,7 @@ public class Graph implements Serializable{
 		try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))){
 			out.writeObject(graph);
 		}catch(IOException e) {
-			throw new GraphException("B³¹d serializacji!");
+			throw new GraphException("Serialization error");
 		}
 	}
 	
@@ -146,11 +146,11 @@ public class Graph implements Serializable{
 			Graph graph = (Graph) in.readObject();
 			return graph;
 		}catch (FileNotFoundException e) {
-			throw new GraphException("Nie odnaleziono pliku z grafem do wczytania!");
+			throw new GraphException("No file found!");
 		}catch(IOException e) {
-			throw new GraphException("B³¹d deserializacji! Problem z plikiem.");
+			throw new GraphException("File fatal error!");
 		} catch (ClassNotFoundException e) {
-			throw new GraphException("B³¹d deserializacji! Nie znaleziono klasy pasuj¹cej do wczytanego obiektu!");
+			throw new GraphException("No such object was found!");
 		} 
 	}
 	
@@ -159,16 +159,16 @@ public class Graph implements Serializable{
 			Graph graph = (Graph) in.readObject();
 			return graph;
 		}catch(IOException e) {
-			throw new GraphException("B³¹d deserializacji! Problem z plikiem.");
+			throw new GraphException("File fatal error!");
 		} catch (ClassNotFoundException e) {
-			throw new GraphException("B³¹d deserializacji! Nie znaleziono klasy pasuj¹cej do wczytanego obiektu!");
+			throw new GraphException("No such object was found!");
 		}
 	}
 
 	public String getListOfNodes() {
 		int index = 1;
-		String list = "Liczba wêz³ów: " + Integer.toString(nodes.size()) + "\n";
-		list += "N. [Typ wêz³a]: (pozycja) {parametry wêz³a}\n";
+		String list = "Number of nodes: " + Integer.toString(nodes.size()) + "\n";
+		list += "N. [Type]: (position) {parameters}\n";
 		for (Node node : nodes) {
 			list += Integer.toString(index++);
 			list += ". ";
@@ -180,8 +180,8 @@ public class Graph implements Serializable{
 
 	public String getListOfEdges() {
 		int index = 1;
-		String list = "Liczba krawêdzi: " + Integer.toString(edges.size()) + "\n";
-		list += "N. [Typ krawêdzi]: (Wêze³ A) ===> (Wêze³ B) {parametry krawêdzi}\n";
+		String list = "Number of edges: " + Integer.toString(edges.size()) + "\n";
+		list += "N. [Type]: (Node A) ===> (Node B) {parameters}\n";
 		for (Edge edge : edges) {
 			list += Integer.toString(index++);
 			list += ". ";
@@ -193,7 +193,7 @@ public class Graph implements Serializable{
 	
 	@Override
 	public String toString() {
-		return graphTitle + "("+ nodes.size() + " wierzcho³ków, " + edges.size() + " krawêdzi)";
+		return graphTitle + "("+ nodes.size() + " nodes, " + edges.size() + " edges)";
 	}
 	
 }

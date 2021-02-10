@@ -156,9 +156,9 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 		}
 		try {
 			Graph.serializeGraph(fileName, graph);
-			JOptionPane.showMessageDialog(null, "Dane zosta³y zapisane do pliku " + fileName);
+			JOptionPane.showMessageDialog(null, "Saved to file " + fileName);
 		} catch (GraphException e) {
-			JOptionPane.showMessageDialog(this, e.getMessage(), "B³¹d!", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error!", JOptionPane.ERROR_MESSAGE);
 		}
 			
 	}
@@ -169,7 +169,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 		
 		JFileChooser fc = new JFileChooser(".");
 		fc.setMultiSelectionEnabled(false);
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("Pliki binarne *.bin", "bin");
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("Binary files *.bin", "bin");
 		fc.addChoosableFileFilter(filter);
 		fc.setFileFilter(filter);
 
@@ -183,9 +183,9 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 			}
 			try {
 				Graph.serializeGraph(selectedFile, graph);
-				JOptionPane.showMessageDialog(null, "Dane zosta³y zapisane do pliku " + selectedFile.getAbsolutePath());
+				JOptionPane.showMessageDialog(null, "Saved to file " + selectedFile.getAbsolutePath());
 			} catch (GraphException e) {
-				JOptionPane.showMessageDialog(this, e.getMessage(), "B³¹d!", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, e.getMessage(), "Error!", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 			
@@ -200,10 +200,10 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 		}
 		try {
 			graph = Graph.deserializeGraph(fileName);
-			JOptionPane.showMessageDialog(null, "Dane zosta³y wczytane z pliku " + fileName);
+			JOptionPane.showMessageDialog(null, "Loaded from file " + fileName);
 			repaint();
 		} catch (GraphException e) {
-			JOptionPane.showMessageDialog(this, e.getMessage(), "B³¹d!", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error!", JOptionPane.ERROR_MESSAGE);
 		}
 			
 	}
@@ -214,7 +214,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 		
 		JFileChooser fc = new JFileChooser(".");
 		fc.setMultiSelectionEnabled(false);
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("Pliki binarne *.bin", "bin");
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("Binary files *.bin", "bin");
 		fc.addChoosableFileFilter(filter);
 		fc.setFileFilter(filter);
 		
@@ -223,10 +223,10 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 			File selectedFile = fc.getSelectedFile();
 			try {
 				graph = Graph.deserializeGraph(selectedFile);
-				JOptionPane.showMessageDialog(null, "Dane zosta³y wczytane z pliku " + selectedFile.getAbsolutePath());
+				JOptionPane.showMessageDialog(null, "Loaded from file " + selectedFile.getAbsolutePath());
 				repaint();
 			} catch (GraphException e) {
-				JOptionPane.showMessageDialog(this, e.getMessage(),"B³¹d!", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, e.getMessage(),"Error!", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 
@@ -242,12 +242,12 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 	
 	public void showNodesList() {
 		String nodesList = graph.getListOfNodes();
-		JOptionPane.showMessageDialog(this, nodesList,"Lista wêz³ów grafu", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, nodesList,"Nodes list", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void showEdgesList() {
 		String nodesList = graph.getListOfEdges();
-		JOptionPane.showMessageDialog(this, nodesList,"Lista wêz³ów grafu", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, nodesList,"Edges list", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	// --------------------------MOUSE
@@ -321,7 +321,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 	
 	private void createPlainPopupMenu(MouseEvent e){
 		JPopupMenu popupMenu = new JPopupMenu();
-		JMenuItem newNodeMenuItem = new JMenuItem("Stwórz nowy wêze³");
+		JMenuItem newNodeMenuItem = new JMenuItem("New node");
 		popupMenu.add(newNodeMenuItem);
 		newNodeMenuItem.addActionListener((action)->{
 			createNewNode(e.getX(), e.getY());
@@ -332,7 +332,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 	
 	private void createNodePopupMenu(MouseEvent e, Node n){
 		JPopupMenu popupMenu = new JPopupMenu();
-		JMenuItem removeNodeMenuItem = new JMenuItem("Usuñ wêze³");
+		JMenuItem removeNodeMenuItem = new JMenuItem("Remove node");
 		popupMenu.add(removeNodeMenuItem);
 		removeNodeMenuItem.addActionListener((action)->{
 			removeNode(n);
@@ -340,7 +340,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 		
 		popupMenu.addSeparator();
 		
-		JMenuItem addEdgeMenuItem = new JMenuItem("Dodaj krawêdŸ");
+		JMenuItem addEdgeMenuItem = new JMenuItem("Add edge");
 		popupMenu.add(addEdgeMenuItem);
 		addEdgeMenuItem.addActionListener((action)->{
 			initializeAddEdge(n);
@@ -348,19 +348,19 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 
 		if(nodeUnderCursor instanceof SpecialNode) {
 			popupMenu.addSeparator();
-			JMenuItem changeNodeRadiusMenuItem = new JMenuItem("Zmieñ rozmiar wêz³a");
+			JMenuItem changeNodeRadiusMenuItem = new JMenuItem("Change node size");
 			popupMenu.add(changeNodeRadiusMenuItem);
 			changeNodeRadiusMenuItem.addActionListener((action)->{		
 				changeNodeRadius(n);
 			});
 			
-			JMenuItem changeNodeColorMenuItem = new JMenuItem("Zmieñ kolor wêz³a");
+			JMenuItem changeNodeColorMenuItem = new JMenuItem("Change node color");
 			popupMenu.add(changeNodeColorMenuItem);
 			changeNodeColorMenuItem.addActionListener((action)->{		
 				changeNodeColor(n);
 			});
 			
-			JMenuItem changeTextMenuItem = new JMenuItem("Zmieñ tekst wêz³a");
+			JMenuItem changeTextMenuItem = new JMenuItem("Change node text");
 			popupMenu.add(changeTextMenuItem);
 			changeTextMenuItem.addActionListener((action)->{		
 				changeNodeText(n);
@@ -375,7 +375,7 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 
 	private void createEdgePopupMenu(MouseEvent event, Edge e) {
 		JPopupMenu popupMenu = new JPopupMenu();
-		JMenuItem removeEdgeMenuItem = new JMenuItem("Usuñ krawêdŸ");
+		JMenuItem removeEdgeMenuItem = new JMenuItem("Remove edge");
 		popupMenu.add(removeEdgeMenuItem);
 		removeEdgeMenuItem.addActionListener((action)->{
 			removeEdge(e);
@@ -383,13 +383,13 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 		
 		if(e instanceof SpecialEdge) {
 			popupMenu.addSeparator();
-			JMenuItem changeEdgeStrokeMenuItem = new JMenuItem("Zmieñ gruboœæ krawêdzi");
+			JMenuItem changeEdgeStrokeMenuItem = new JMenuItem("Change edge size");
 			popupMenu.add(changeEdgeStrokeMenuItem);
 			changeEdgeStrokeMenuItem.addActionListener((action)->{
 				changeEdgeStroke(e);
 			});
 			
-			JMenuItem changeEdgeColorMenuItem = new JMenuItem("Zmieñ kolor krawêdzi");
+			JMenuItem changeEdgeColorMenuItem = new JMenuItem("Change edge color");
 			popupMenu.add(changeEdgeColorMenuItem);
 			changeEdgeColorMenuItem.addActionListener((action)->{
 				changeEdgeColor(e);
@@ -555,20 +555,20 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 	
 	private void createNewNode(int mx, int my) {
 		try {
-			NodeType nodeType = (NodeType) JOptionPane.showInputDialog(this, "Wybierz typ wêz³a", "Nowa wêze³", JOptionPane.DEFAULT_OPTION, null, NodeType.values(), NodeType.BASIC_NODE);
+			NodeType nodeType = (NodeType) JOptionPane.showInputDialog(this, "Choose node type", "New node", JOptionPane.DEFAULT_OPTION, null, NodeType.values(), NodeType.BASIC_NODE);
 			if(nodeType == NodeType.BASIC_NODE) {
 				graph.addNode(new Node(mx, my));
 			}else if(nodeType == NodeType.SPECIAL_NODE) {
-				Color color = JColorChooser.showDialog(this, "Wybierz kolor nowego wêz³a", Color.WHITE);
-				int radius = ((Integer)JOptionPane.showInputDialog(this, "Wybierz promieñ", "Nowy wêze³", JOptionPane.DEFAULT_OPTION, null, SpecialNode.RADIUS_VALUES, SpecialNode.RADIUS_VALUES[0])).intValue();
-				String text = JOptionPane.showInputDialog(this, "Wprowadx tekst:", "Nowy wêze³", JOptionPane.QUESTION_MESSAGE);
+				Color color = JColorChooser.showDialog(this, "Choose color", Color.WHITE);
+				int radius = ((Integer)JOptionPane.showInputDialog(this, "Choose size", "New node", JOptionPane.DEFAULT_OPTION, null, SpecialNode.RADIUS_VALUES, SpecialNode.RADIUS_VALUES[0])).intValue();
+				String text = JOptionPane.showInputDialog(this, "Input text:", "New node", JOptionPane.QUESTION_MESSAGE);
 				graph.addNode(new SpecialNode(mx, my, color, radius, text));
 			}else {
 				throw new NullPointerException();
 			}
 			repaint();
 		}catch(NullPointerException e) {
-			JOptionPane.showMessageDialog(this, "Tworzenie wêz³a zosta³o anulowane.", "Anulowano", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Operation canceled.", "Canceled", JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}
@@ -590,23 +590,23 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 		if(chooseNodeB) {
 			if(nodeUnderCursor != null) {
 				if(nodeUnderCursor.equals(newEdgeNodeA)) {
-					JOptionPane.showMessageDialog(this, "Wybierz wêzê³ inny, ni¿ pocz¹towy!", "B³¹d!", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(this, "Choose different node!", "Error!", JOptionPane.ERROR_MESSAGE);
 				}else {
 					try {
 						newEdgeNodeB = nodeUnderCursor;
-						EdgeType edgeType = (EdgeType) JOptionPane.showInputDialog(this, "Wybierz typ krawêdzi", "Nowa krawêdŸ", JOptionPane.DEFAULT_OPTION, null, EdgeType.values(), EdgeType.BASIC_EDGE);
+						EdgeType edgeType = (EdgeType) JOptionPane.showInputDialog(this, "Choose edge type", "New edge", JOptionPane.DEFAULT_OPTION, null, EdgeType.values(), EdgeType.BASIC_EDGE);
 						if(edgeType == EdgeType.BASIC_EDGE) {
 							graph.addEdge(new Edge(newEdgeNodeA, newEdgeNodeB));
 						}else if(edgeType == EdgeType.SPECIAL_EDGE) {
-							Color color = JColorChooser.showDialog(this, "Wybierz kolor nowej krawêdzi", Color.BLACK);
-							int stroke = ((Integer)JOptionPane.showInputDialog(this, "Wybierz gruboœæ krawêdzi", "Nowa krawêdŸ", JOptionPane.DEFAULT_OPTION, null, SpecialEdge.STROKE_VALUES, SpecialEdge.STROKE_VALUES[0])).intValue();
+							Color color = JColorChooser.showDialog(this, "Choose color", Color.BLACK);
+							int stroke = ((Integer)JOptionPane.showInputDialog(this, "Choose size", "New edge", JOptionPane.DEFAULT_OPTION, null, SpecialEdge.STROKE_VALUES, SpecialEdge.STROKE_VALUES[0])).intValue();
 							graph.addEdge(new SpecialEdge(newEdgeNodeA, newEdgeNodeB, color, stroke));
 						}else {
 							throw new NullPointerException();
 						}
 						repaint();
 					}catch (NullPointerException e){
-						JOptionPane.showMessageDialog(this, "Tworzenie krawêdzi zosta³o anulowane.", "Anulowano", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(this, "Operation canceled.", "Canceled", JOptionPane.INFORMATION_MESSAGE);
 					}
 					
 				}
@@ -622,64 +622,64 @@ public class GraphPanel extends JPanel implements MouseListener, MouseMotionList
 	
 	private void changeNodeRadius(Node n) {
 		try {
-			int radius = ((Integer)JOptionPane.showInputDialog(this, "Wybierz promieñ:", "Edycja wêz³a", JOptionPane.QUESTION_MESSAGE, null, SpecialNode.RADIUS_VALUES, SpecialNode.RADIUS_VALUES[0])).intValue();
+			int radius = ((Integer)JOptionPane.showInputDialog(this, "Choose radius:", "Edit node", JOptionPane.QUESTION_MESSAGE, null, SpecialNode.RADIUS_VALUES, SpecialNode.RADIUS_VALUES[0])).intValue();
 			((SpecialNode)n).setR(radius);
 			repaint();
 		}catch (ClassCastException e) {
-			JOptionPane.showMessageDialog(this, "Ten rodzaj wêze³a nie obs³uguje zmiany promienia.", "B³¹d!", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "This node cannot have different radius.", "Error!", JOptionPane.ERROR_MESSAGE);
 		}catch (NullPointerException e) {
-			JOptionPane.showMessageDialog(this, "Zmiana promienia zosta³a anulowana.", "Anulowano", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Operation canceled.", "Canceled", JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}
 	
 	private void changeNodeColor(Node n) {
 		try {
-			Color color = JColorChooser.showDialog(this, "Wybierz nowy kolor wêz³a", ((SpecialNode) n).getColor());
+			Color color = JColorChooser.showDialog(this, "Choose new color", ((SpecialNode) n).getColor());
 			((SpecialNode)n).setColor(color);
 			repaint();
 		}catch(ClassCastException e){
-			JOptionPane.showMessageDialog(this, "Ten rodzaj wêze³a nie obs³uguje zmiany koloru.", "B³¹d!", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "This node cannot have different color.", "Error!", JOptionPane.ERROR_MESSAGE);
 		}catch (NullPointerException e) {
-			JOptionPane.showMessageDialog(this, "Zmiana koloru zosta³a anulowana.", "Anulowano", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Operation canceled.", "Canceled", JOptionPane.INFORMATION_MESSAGE);
 		}
 			
 	}
 
 	private void changeNodeText(Node n) {
-		String text = JOptionPane.showInputDialog(this, "Wprowadx tekst:", "Edycja wêz³a", JOptionPane.QUESTION_MESSAGE);
+		String text = JOptionPane.showInputDialog(this, "Input text:", "Edit node", JOptionPane.QUESTION_MESSAGE);
 		try {
 			((SpecialNode)n).setText(text);
 			repaint();
 		}catch(ClassCastException e) {
-			JOptionPane.showMessageDialog(this, "Ten rodzaj wêze³a nie obs³uguje zmiany tekstu.", "B³¹d!", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "This node cannot have text.", "Error!", JOptionPane.INFORMATION_MESSAGE);
 		}catch (NullPointerException e) {
-			JOptionPane.showMessageDialog(this, "Zmiana tekstu zosta³a anulowana.", "Anulowano", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Operation canceled.", "Canceled", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 	
 	private void changeEdgeStroke(Edge e) {
 		try {
-			int stroke = ((Integer)JOptionPane.showInputDialog(this, "Wybierz gruboœæ krawêdzi", "Nowa krawêdŸ", JOptionPane.DEFAULT_OPTION, null, SpecialEdge.STROKE_VALUES, SpecialEdge.STROKE_VALUES[0])).intValue();
+			int stroke = ((Integer)JOptionPane.showInputDialog(this, "Choose stroke", "Edit edge", JOptionPane.DEFAULT_OPTION, null, SpecialEdge.STROKE_VALUES, SpecialEdge.STROKE_VALUES[0])).intValue();
 			((SpecialEdge) e).setStroke(stroke);
 			repaint();
 		} catch (ClassCastException exc) {
-			JOptionPane.showMessageDialog(this, "Ten rodzaj krawêdzi nie obs³uguje zmiany gruboœci.", "B³¹d!", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "This edge cannot have different stroke.", "Error!", JOptionPane.INFORMATION_MESSAGE);
 		}catch (NullPointerException exc) {
-			JOptionPane.showMessageDialog(this, "Anulowano edycjê.", "B³¹d!", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Operation canceled.", "Canceled", JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}
 
 	private void changeEdgeColor(Edge e){
 		try {
-			Color color = JColorChooser.showDialog(this, "Wybierz kolor nowej krawêdzi", Color.BLACK);
+			Color color = JColorChooser.showDialog(this, "Choose color", Color.BLACK);
 			((SpecialEdge) e).setColor(color);
 			repaint();
 		} catch (ClassCastException exc) {
-			JOptionPane.showMessageDialog(this, "Ten rodzaj krawêdzi nie obs³uguje zmiany koloru.", "B³¹d!", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "This edge cannot have different color.", "Error!", JOptionPane.INFORMATION_MESSAGE);
 		}catch (NullPointerException exc) {
-			JOptionPane.showMessageDialog(this, "Anulowano edycjê.", "B³¹d!", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Operation canceled.", "Canceled", JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}
