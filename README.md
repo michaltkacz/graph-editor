@@ -1,5 +1,8 @@
 # GraphEditor
-Simple graph editor made with Java Swing. 
+Simple graph editor made with Java Swing.
+
+## App screenshots
+![Screenshot from app](graph-editor.png)
 
 ## TODO
 *Heavy refactor of code
