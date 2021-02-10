@@ -27,7 +27,7 @@ This program was created as an assigment for Java 1.8 course. Its main goal was 
 * Java 1.8 with Swing library.
 
 ## Setup and run
-In order to run this project, Java 1.8 is required. Simply download this repository, add it to your Java IDE workspace and run it as Java Application (you can also build project to standalone aplication).
+In order to run this project, Java 1.8 is required. Simply download this repository, add it to your Java IDE workspace and run it as Java Application (you can also build project to standalone application).
 
 ## Features
 List of features:
