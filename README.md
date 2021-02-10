@@ -17,10 +17,10 @@
 This program was created as an assigment for Java 1.8 course. Its main goal was to learn how to use many different Swing controls, how to define own controls and how to handle mouse and keyboard input. It was also a training in executing file read/write operations, exceptions handling and generally writing in Object Oriented Programming paradigm.
 
 ## Screenshots
-|                                               |                                               |
-| :-------------------------------------------: | :-------------------------------------------: |
-| <img width="1604"  src="./images/gif1.gif">   | <img width="1604"  src="./images/gif2.gif">   |
-| <img width="1604"  src="./images/image1.png"> | <img width="1604"  src="./images/image2.png"> |
+![Example gif1](./images/gif1.gif)
+![Example gif1](./images/gif2.gif)
+![Example screenshot1](./images/image1.png)
+![Example screenshot2](./images/image2.png)
 
 
 ## Technologies
